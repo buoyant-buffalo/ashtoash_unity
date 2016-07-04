@@ -11,8 +11,17 @@ public class HookShot : MonoBehaviour {
 	private Rigidbody playerRb;
 	private PlayerController playerController;
 
+	public static HookShot instance = null;
+
 	void Start () 
 	{
+		if (instance != null && instance != this) {
+			Destroy (instance.gameObject);
+			instance = this;
+		} 
+		instance = this;
+
+
 		hookRb = GetComponent <Rigidbody> ();
 		playerRb = GameObject.FindGameObjectWithTag ("Player").GetComponent <Rigidbody> ();
 		playerController = playerRb.GetComponent <PlayerController> ();

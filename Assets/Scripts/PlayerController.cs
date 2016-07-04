@@ -78,8 +78,7 @@ public class PlayerController : MonoBehaviour
 		public GameObject hookShot;
 		public Transform firePoint;
 		public float projectileSpeed = 20f;
-
-		public static bool hookBlocked = false;
+		public float reloadTime = 0.2f;
 	}
 
     public Camera cam;
@@ -94,6 +93,7 @@ public class PlayerController : MonoBehaviour
     private float m_YRotation;
     private Vector3 m_GroundContactNormal;
 	private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
+	private float lastFireTime;
 
 
     public Vector3 Velocity
@@ -138,8 +138,9 @@ public class PlayerController : MonoBehaviour
             m_Jump = true;
         }
 
-		if (Input.GetButtonDown ("Fire1")) {
+		if (Input.GetButtonDown ("Fire1") && Time.time > lastFireTime + grappleSettings.reloadTime) {
 			fireHook ();
+			lastFireTime = Time.time;
 		}
     }
 

@@ -46,10 +46,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\HeadBob.cs" />
-     <Compile Include="Assets\Scripts\HookFixed.cs" />
      <Compile Include="Assets\Scripts\HookShot.cs" />
-     <Compile Include="Assets\Scripts\PlayerAction.cs" />
-     <Compile Include="Assets\Scripts\RigidbodyFirstPersonController.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
@@ -61,10 +59,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="InputSimulator">
- <HintPath>C:/Users/Brandon/Documents/GitHub/ashtoash/Assets/InputSimulator.0.1.0.0-bin/Release/InputSimulator.dll</HintPath>
+ <HintPath>C:/Users/Brandon/Documents/GitHub/ashtoash/Assets/InputSimulator.0.1.0.0-bin/Debug/InputSimulator.dll</HintPath>
  </Reference>
  <Reference Include="InputSimulator">
- <HintPath>C:/Users/Brandon/Documents/GitHub/ashtoash/Assets/InputSimulator.0.1.0.0-bin/Debug/InputSimulator.dll</HintPath>
+ <HintPath>C:/Users/Brandon/Documents/GitHub/ashtoash/Assets/InputSimulator.0.1.0.0-bin/Release/InputSimulator.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

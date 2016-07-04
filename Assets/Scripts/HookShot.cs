@@ -5,6 +5,7 @@ public class HookShot : MonoBehaviour {
 
 	public float lifetime = 1f;
 	public float strength = 100f;
+	public float pullDelay = 0.25f;
 
 	private bool anchored = false;
 	private Rigidbody hookRb;
@@ -34,11 +35,7 @@ public class HookShot : MonoBehaviour {
 	void OnCollisionEnter (Collision col) 
 	{
 		hookRb.velocity = Vector3.zero;
-		anchored = true;
-		if (playerController.Grounded) 
-		{
-			playerController.Jump ();
-		}
+		StartCoroutine ("DelayedPull", pullDelay); 
 	}
 
 	void FixedUpdate ()
@@ -49,6 +46,16 @@ public class HookShot : MonoBehaviour {
 		}
 	}
 
+	IEnumerator DelayedPull (float delay)
+	{
+		yield return new WaitForSeconds (delay);
+		anchored = true;
+		if (playerController.Grounded) 
+		{
+			playerController.Jump ();
+		}
+	}
+		
 	void PullPlayer () 
 	{
 		Vector3 deltaPos = transform.position - playerRb.position;

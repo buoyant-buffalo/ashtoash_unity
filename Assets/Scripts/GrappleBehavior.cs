@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HookShot : MonoBehaviour {
+public class GrappleBehavior : MonoBehaviour {
 
 	public float lifetime = 1f;
 	public float strength = 100f;
-	public float pullDelay = 0.25f;
+	public float pullDelay = 0f;
 
 	private bool anchored = false;
 	private Rigidbody hookRb;
 	private Rigidbody playerRb;
 	private PlayerController playerController;
 
-	public static HookShot instance = null;
+	public static GrappleBehavior instance = null;
 
 	void Start () 
 	{

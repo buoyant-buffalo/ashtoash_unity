@@ -72,20 +72,11 @@ public class PlayerController : MonoBehaviour
         public float shellOffset; //reduce the radius by that ratio to avoid getting stuck in wall (a value of 0.1f is nice)
     }
 
-	[Serializable]
-	public class GrappleSettings
-	{
-		public GameObject hookShot;
-		public Transform firePoint;
-		public float projectileSpeed = 20f;
-		public float reloadTime = 0.2f;
-	}
 
     public Camera cam;
     public MovementSettings movementSettings = new MovementSettings();
     public MouseLook mouseLook = new MouseLook();
     public AdvancedSettings advancedSettings = new AdvancedSettings();
-	public GrappleSettings grappleSettings = new GrappleSettings();
 
 
     private Rigidbody m_RigidBody;
@@ -93,7 +84,6 @@ public class PlayerController : MonoBehaviour
     private float m_YRotation;
     private Vector3 m_GroundContactNormal;
 	private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
-	private float lastFireTime;
 
 
     public Vector3 Velocity
@@ -137,11 +127,6 @@ public class PlayerController : MonoBehaviour
         {
             m_Jump = true;
         }
-
-		if (Input.GetButtonDown ("Fire1") && Time.time > lastFireTime + grappleSettings.reloadTime) {
-			fireHook ();
-			lastFireTime = Time.time;
-		}
     }
 
 
@@ -269,13 +254,6 @@ public class PlayerController : MonoBehaviour
             m_Jumping = false;
         }
     }
-
-	private void fireHook () 
-	{
-		GameObject hook = (GameObject)Instantiate (grappleSettings.hookShot, grappleSettings.firePoint.position, grappleSettings.firePoint.rotation);
-		Physics.IgnoreCollision (GetComponent <Collider>(), hook.GetComponent <Collider>());
-		hook.GetComponent <Rigidbody>().velocity = Camera.main.transform.forward * grappleSettings.projectileSpeed;
-	}
 
 	public void Jump ()
 	{

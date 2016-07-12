@@ -1,28 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour 
 {
-	private static GameManager _instance = null;
+    public static GameManager instance = null;
 
-
-	public static GameManager Instance 
-	{ 
-		get { return _instance; } 
-	}
+    public int embers = 0;
 
 	void Awake () 
 	{
-		if (_instance != null && _instance != this)	{
+		if (instance != null && instance != this)	{
 			Destroy(gameObject);
-		} else 		{
-			_instance = this;
+		} else {
+			instance = this;
 		}
 		DontDestroyOnLoad(gameObject);
-	}
+   	}
 	
 	void Update () 
 	{
-	
 	}
 }

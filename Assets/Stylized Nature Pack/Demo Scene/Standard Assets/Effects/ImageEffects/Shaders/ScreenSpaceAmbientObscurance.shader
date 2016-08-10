@@ -51,8 +51,6 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 
 	float4 _MainTex_TexelSize;
 
-	static const float gaussian[5] = { 0.153170, 0.144893, 0.122649, 0.092902, 0.062970 };  // stddev = 2.0
-
 	float2 _Axis;
 
 	/** Increase to make edges crisper. Decrease to reduce temporal flicker. */
@@ -296,6 +294,8 @@ Shader "Hidden/ScreenSpaceAmbientObscurance"
 		*/
 
 		// Base weight for depth falloff. Increase this for more blurriness, decrease it for better edge discrimination
+
+		float gaussian[5] = { 0.153170, 0.144893, 0.122649, 0.092902, 0.062970 };  // stddev = 2.0
 
 		float BASE = gaussian[0] * 0.5; // ole: i decreased
 		float totalWeight = BASE;

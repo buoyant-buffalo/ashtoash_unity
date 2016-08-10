@@ -112,6 +112,7 @@
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
      <None Include="Assets\Features\AtmosphericScattering\Shaders\UnityStandardSurface.cginc" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
+     <None Include="Assets\Features\PaintJob\Content\PaintJobTempHack.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />

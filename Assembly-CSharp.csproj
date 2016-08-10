@@ -48,6 +48,8 @@
      <Compile Include="Assets\Features\AtmosphericScattering\Code\AtmosphericScattering.cs" />
      <Compile Include="Assets\Features\AtmosphericScattering\Code\AtmosphericScatteringDeferred.cs" />
      <Compile Include="Assets\Features\AtmosphericScattering\Code\AtmosphericScatteringSun.cs" />
+     <Compile Include="Assets\Features\PaintJob\Code\PaintJob.cs" />
+     <Compile Include="Assets\Features\PaintJob\Code\PaintJobProxy.cs" />
      <Compile Include="Assets\Particle Ribbon\Scripts\ReverseNormals.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GrappleBehavior.cs" />
@@ -111,6 +113,7 @@
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
      <None Include="Assets\Features\AtmosphericScattering\Shaders\UnityStandardSurface.cginc" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
+     <None Include="Assets\Features\PaintJob\Content\PaintJobTempHack.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />

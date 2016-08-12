@@ -1,13 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader">
     <Files>
       <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EventManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GrappleBehavior.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerFireHook.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerExamine.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" Line="326" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

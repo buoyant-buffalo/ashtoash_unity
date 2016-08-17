@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/Brandon/Downloads/Ember_Test/Ember_Test/Assets/ember.unity
+- path: Assets/_Scenes/L1.unity
   isLoaded: 1
   isActive: 1

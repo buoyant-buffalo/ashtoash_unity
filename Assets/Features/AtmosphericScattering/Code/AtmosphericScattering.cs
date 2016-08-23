@@ -8,60 +8,61 @@ public class AtmosphericScattering : MonoBehaviour {
 	public enum DepthTexture { Enable, Disable, Ignore }
 
 	[Header("World Components")]
-	public Gradient	worldRayleighColorRamp			= new Gradient();
-	public float	worldRayleighColorIntensity		= 2f;
-	public float	worldRayleighDensity			= 10f;
-	public float	worldRayleighExtinctionFactor	= 1.1f;
-	public float	worldRayleighIndirectScatter	= 0.33f;
-	public Gradient	worldMieColorRamp				= new Gradient();
-	public float	worldMieColorIntensity			= 2f;
-	public float	worldMieDensity					= 50f;
-	public float	worldMieExtinctionFactor		= 0f;
-	public float	worldMiePhaseAnisotropy			= 0.76f;
-	public float	worldNearScatterPush			= 0f;
-	public float	worldNormalDistance				= 1000f;
+	public Gradient	worldRayleighColorRamp				= null;
+	public float	worldRayleighColorIntensity			= 1f;
+	public float	worldRayleighDensity				= 10f;
+	public float	worldRayleighExtinctionFactor		= 1.1f;
+	public float	worldRayleighIndirectScatter		= 0.33f;
+	public Gradient	worldMieColorRamp					= null;
+	public float	worldMieColorIntensity				= 1f;
+	public float	worldMieDensity						= 15f;
+	public float	worldMieExtinctionFactor			= 0f;
+	public float	worldMiePhaseAnisotropy				= 0.9f;
+	public float	worldNearScatterPush				= 0f;
+	public float	worldNormalDistance					= 1000f;
 
 	[Header("Height Components")]
-	public Color	heightRayleighColor		= Color.white;
-	public float	heightRayleighIntensity	= 1f;
-	public float	heightRayleighDensity	= 10f;
-	public float	heightMieDensity		= 0f;
-	public float	heightExtinctionFactor	= 1.1f;
-	public float	heightSeaLevel			= 0f;
-	public float	heightDistance			= 50f;
-	public Vector3	heightPlaneShift		= Vector3.zero;
-	public float	heightNearScatterPush	= 0f;
-	public float	heightNormalDistance	= 1000f;
+	public Color	heightRayleighColor					= Color.white;
+	public float	heightRayleighIntensity				= 1f;
+	public float	heightRayleighDensity				= 10f;
+	public float	heightMieDensity					= 0f;
+	public float	heightExtinctionFactor				= 1.1f;
+	public float	heightSeaLevel						= 0f;
+	public float	heightDistance						= 50f;
+	public Vector3	heightPlaneShift					= Vector3.zero;
+	public float	heightNearScatterPush				= 0f;
+	public float	heightNormalDistance				= 1000f;
 
 	[Header("Sky Dome")]
-	public Vector3		skyDomeScale		= new Vector3(1f, 0.05f, 1f);
-	public Vector3		skyDomeRotation;
-	public Transform	skyDomeTrackedYawRotation;
-	public bool			skyDomeVerticalFlip;
-	public Cubemap		skyDomeCube;
-	public float		skyDomeExposure		= 1f;
-	public Color		skyDomeTint			= Color.white;
-	[HideInInspector] public Vector3 skyDomeOffset;
+	public Vector3		skyDomeScale					= new Vector3(1f, 0.1f, 1f);
+	public Vector3		skyDomeRotation					= Vector3.zero;
+	public Transform	skyDomeTrackedYawRotation		= null;
+	public bool			skyDomeVerticalFlip				= false;
+	public Cubemap		skyDomeCube						= null;
+	public float		skyDomeExposure					= 1f;
+	public Color		skyDomeTint						= Color.white;
+	[HideInInspector] public Vector3 skyDomeOffset		= Vector3.zero;
 
 	[Header("Scatter Occlusion")]
-	public bool					useOcclusion = false;
-	public float				occlusionBias = 0f;
-	public float				occlusionBiasIndirect = 0.6f;
-	public float				occlusionBiasClouds = 0.3f;
-	public OcclusionDownscale	occlusionDownscale = OcclusionDownscale.x2;
-	public OcclusionSamples		occlusionSamples = OcclusionSamples.x64;
-	public bool					occlusionDepthFixup = true;
-	public float				occlusionDepthThreshold = 25f;
-	public bool					occlusionFullSky = true;
-	public float				occlusionBiasSkyRayleigh = 0.2f;
-	public float				occlusionBiasSkyMie = 0.4f;
+	public bool					useOcclusion			= false;
+	public float				occlusionBias			= 0f;
+	public float				occlusionBiasIndirect	= 0.6f;
+	public float				occlusionBiasClouds		= 0.3f;
+	public OcclusionDownscale	occlusionDownscale		= OcclusionDownscale.x2;
+	public OcclusionSamples		occlusionSamples		= OcclusionSamples.x64;
+	public bool					occlusionDepthFixup		= true;
+	public float				occlusionDepthThreshold	= 25f;
+	public bool					occlusionFullSky		= false;
+	public float				occlusionBiasSkyRayleigh= 0.2f;
+	public float				occlusionBiasSkyMie		= 0.4f;
 	
 	[Header("Other")]
-	public float			worldScaleExponent = 1.0f;
-	public bool				forcePerPixel;
+	public float			worldScaleExponent			= 1.0f;
+	public bool				forcePerPixel				= false;
+	public bool				forcePostEffect				= false;
 	[Tooltip("Soft clouds need depth values. Ignore means externally controlled.")]
-	public DepthTexture		depthTexture;
-	public ScatterDebugMode	debugMode;
+	public DepthTexture		depthTexture				= DepthTexture.Enable;
+	public ScatterDebugMode	debugMode					= ScatterDebugMode.None;
 	
 	[HideInInspector] public Shader occlusionShader;
 
@@ -75,8 +76,8 @@ public class AtmosphericScattering : MonoBehaviour {
 	public static AtmosphericScattering instance { get; private set; }
 
 	void Awake() {
-		var mf = GetComponent<MeshFilter>() ?? gameObject.AddComponent<MeshFilter>();
-		if(!mf.sharedMesh) {
+		if(!GetComponent<MeshFilter>()) {
+			var mf = gameObject.AddComponent<MeshFilter>();
 			mf.sharedMesh = new Mesh();
 			mf.sharedMesh.bounds = new Bounds(Vector3.zero, Vector3.one * 10000f);
 			mf.sharedMesh.SetTriangles((int[])null, 0);
@@ -94,10 +95,20 @@ public class AtmosphericScattering : MonoBehaviour {
 		m_occlusionMaterial = new Material(occlusionShader);
 		m_occlusionMaterial.hideFlags = HideFlags.HideAndDontSave;
 
-#if UNITY_EDITOR
-		if(UnityEditor.GameObjectUtility.AreStaticEditorFlagsSet(gameObject, UnityEditor.StaticEditorFlags.BatchingStatic))
-			throw new UnityException("AtmosphericScattering cannot be batching static!");
-#endif
+		if(worldRayleighColorRamp == null) {
+			worldRayleighColorRamp = new Gradient();
+			worldRayleighColorRamp.SetKeys(
+				new[]{ new GradientColorKey(new Color(0.3f, 0.4f, 0.6f), 0f), new GradientColorKey(new Color(0.5f, 0.6f, 0.8f), 1f) },
+			new[]{ new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 1f) }
+			);
+		}
+		if(worldMieColorRamp == null) {
+			worldMieColorRamp = new Gradient();
+			worldMieColorRamp.SetKeys(
+				new[]{ new GradientColorKey(new Color(0.95f, 0.75f, 0.5f), 0f), new GradientColorKey(new Color(1f, 0.9f, 8.0f), 1f) },
+			new[]{ new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 1f) }
+			);
+		}
 
 		m_isAwake = true;
 	}
@@ -345,8 +356,6 @@ public class AtmosphericScattering : MonoBehaviour {
 		Shader.SetGlobalVector("u_MieColorO00", (Vector4)mieColorO00 * worldMieColorIntensity);
 		Shader.SetGlobalVector("u_MieColorP20", (Vector4)mieColorP20 * worldMieColorIntensity);
 
-//		Shader.SetGlobalVector("u_SunRayStrengths", new Vector4(sunRayLightenStrength, sunRayDarkenStrength, 0f, 0f));
-
 		Shader.SetGlobalFloat("u_AtmosphericsDebugMode", (int)debugMode);
 	}
 
@@ -356,10 +365,9 @@ public class AtmosphericScattering : MonoBehaviour {
 
 		var trackedYaw = skyDomeTrackedYawRotation ? skyDomeTrackedYawRotation.eulerAngles.y : 0f;
 		Shader.SetGlobalMatrix("u_SkyDomeRotation",
-				Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(skyDomeRotation.x, 0f, 0f), Vector3.one)
-				* Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0f, skyDomeRotation.y - trackedYaw, 0f), Vector3.one)
-                * Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(1f, skyDomeVerticalFlip ? -1f : 1f, 1f))
-
+           Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(skyDomeRotation.x, 0f, 0f), Vector3.one)
+           * Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0f, skyDomeRotation.y - trackedYaw, 0f), Vector3.one)
+           * Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(1f, skyDomeVerticalFlip ? -1f : 1f, 1f))                   
 		);
 
 		Shader.SetGlobalVector("u_SunDirection", hasSun ? -activeSun.transform.forward : Vector3.down);	

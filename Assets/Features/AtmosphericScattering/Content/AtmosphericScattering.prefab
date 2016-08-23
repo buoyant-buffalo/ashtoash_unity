@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &400000
 Transform:
@@ -39,6 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5e5809d1a094f4dadcea7dac27bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldNormalDistance: 1000
+  worldNearScatterPush: 0
   worldRayleighColorRamp:
     key0:
       serializedVersion: 2
@@ -133,8 +135,8 @@ MonoBehaviour:
   worldMieDensity: 5.26000023
   worldMieExtinctionFactor: 1
   worldMiePhaseAnisotropy: .75
-  worldNearScatterPush: 0
-  worldNormalDistance: 1000
+  heightNormalDistance: 1000
+  heightNearScatterPush: 0
   heightRayleighColor: {r: .501730084, g: .576816559, b: .852941155, a: 1}
   heightRayleighIntensity: 1
   heightRayleighDensity: 44.4000015
@@ -143,31 +145,46 @@ MonoBehaviour:
   heightSeaLevel: -3.0999999
   heightDistance: 10
   heightPlaneShift: {x: 0, y: 0, z: 0}
-  heightNearScatterPush: 0
-  heightNormalDistance: 1000
   skyDomeScale: {x: 1, y: .100000001, z: 1}
   skyDomeRotation: {x: 1.83000004, y: -548.099976, z: 0}
-  skyDomeTrackedYawRotation: {fileID: 0}
   skyDomeVerticalFlip: 0
   skyDomeCube: {fileID: 8900000, guid: 6863b23824048d440956247b7d58f8ae, type: 3}
   skyDomeExposure: 2
-  skyDomeTint: {r: 1, g: 1, b: 1, a: 1}
   skyDomeOffset: {x: 0, y: 0, z: 0}
+  worldScaleExponent: 1
   useOcclusion: 0
   occlusionBias: 0
   occlusionBiasIndirect: .800000012
   occlusionBiasClouds: .100000001
-  occlusionDownscale: 2
-  occlusionSamples: 0
-  occlusionDepthFixup: 1
-  occlusionDepthThreshold: 25
-  occlusionFullSky: 1
-  occlusionBiasSkyRayleigh: .200000003
-  occlusionBiasSkyMie: .400000006
-  worldScaleExponent: 1
-  forcePerPixel: 0
-  depthTexture: 0
-  debugMode: 0
+  shadowMode: 1
+  shadowMapSize: 1024
+  shadowMapDownscale: 2
+  shadowCullingMask:
+    serializedVersion: 2
+    m_Bits: 25165824
+  shadowStaticAnchor: {fileID: 0}
+  forceShadowMapUpdate: 1
+  shadowSampleExponent: 1
+  debugOcclusion: 0
+  bakedShadowMatrix:
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
+  bakedShadowMap: {fileID: 0}
+  tempDepthRender: {fileID: 4800000, guid: a4241d712f13fdb488422f00d4eb6e21, type: 3}
   occlusionShader: {fileID: 4800000, guid: 0997715dbbf3a1e41b8df8c3d734e682, type: 3}
 --- !u!1001 &100100000
 Prefab:
@@ -175,11 +192,7 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}

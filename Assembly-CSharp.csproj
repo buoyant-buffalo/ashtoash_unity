@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\EnvPreset.cs" />
+     <Compile Include="Assets\Code\EnvPresetChooser.cs" />
+     <Compile Include="Assets\Code\FreeCamera.cs" />
      <Compile Include="Assets\Features\AtmosphericScattering\Code\AtmosphericScattering.cs" />
      <Compile Include="Assets\Features\AtmosphericScattering\Code\AtmosphericScatteringDeferred.cs" />
      <Compile Include="Assets\Features\AtmosphericScattering\Code\AtmosphericScatteringSun.cs" />
@@ -169,8 +172,10 @@
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
+     <None Include="Assets\readme.txt" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
+     <None Include="Assets\Shaders\SkyboxHDR.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
      <None Include="Assets\Stylized Nature Pack\Demo Scene\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />

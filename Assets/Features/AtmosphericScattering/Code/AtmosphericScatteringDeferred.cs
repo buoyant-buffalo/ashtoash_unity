@@ -23,9 +23,15 @@ public class AtmosphericScatteringDeferred : UnityStandardAssets.ImageEffects.Po
 	[ImageEffectOpaque]
 	void OnRenderImage(RenderTexture source, RenderTexture destination) {
 		Camera cam = GetComponent<Camera>();
-		
-		if(!CheckResources() || !cam || cam.actualRenderingPath != RenderingPath.DeferredShading) {
-			Graphics.Blit (source, destination);
+
+		var shouldRender =
+			CheckResources()
+			&& (	(cam && cam.actualRenderingPath == RenderingPath.DeferredShading) 
+			    	|| (AtmosphericScattering.instance && AtmosphericScattering.instance.forcePostEffect)
+		    	);
+
+		if(!shouldRender) { 
+			Graphics.Blit(source, destination);
 			return;
 		}
 

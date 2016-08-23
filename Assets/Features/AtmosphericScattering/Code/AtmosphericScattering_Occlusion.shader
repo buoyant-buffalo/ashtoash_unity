@@ -1,7 +1,7 @@
 Shader "Hidden/AtmosphericScattering_Occlusion" {
 CGINCLUDE
 	#pragma target 3.0
-	#pragma only_renderers d3d11 d3d9 opengl  glcore
+	#pragma only_renderers d3d11 d3d9 opengl glcore
 	
 	#pragma multi_compile _ ATMOSPHERICS_OCCLUSION
 	#pragma multi_compile _ ATMOSPHERICS_OCCLUSION_FULLSKY

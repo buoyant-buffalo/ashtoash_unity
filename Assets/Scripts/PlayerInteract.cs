@@ -22,6 +22,7 @@ public class PlayerInteract : MonoBehaviour {
 
         if (Physics.Raycast(cam.position, cam.forward, out hitInfo, interactDistance)) {
             interactText.gameObject.SetActive(true);
+
             switch (hitInfo.collider.gameObject.tag) {
                 case "Ember":
                     interactText.text = "Collect Ember";
@@ -37,19 +38,15 @@ public class PlayerInteract : MonoBehaviour {
                     }
                     break;
 
-                case "Burnable":
+                case "Burn":
                     interactText.text = "Burn it with fire";
                     if (Input.GetKeyDown(KeyCode.E)) {
                         hitInfo.collider.gameObject.GetComponent<Burn>().enabled = true;
                     }
                     break;
-
             }
-//            if (hitInfo.collider.gameObject.CompareTag("Ember")) {
-//                examineText.gameObject.SetActive(true);
-                
-//            }
-        } else {
+        } 
+        else {
             examineEnabled = false;
             interactText.gameObject.SetActive(false);
         }

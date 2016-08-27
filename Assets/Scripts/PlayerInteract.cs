@@ -44,6 +44,9 @@ public class PlayerInteract : MonoBehaviour {
                         hitInfo.collider.gameObject.GetComponent<Burn>().enabled = true;
                     }
                     break;
+                default:
+                    interactText.gameObject.SetActive(false);
+                    break;
             }
         } 
         else {

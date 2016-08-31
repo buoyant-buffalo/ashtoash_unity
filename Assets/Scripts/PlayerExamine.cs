@@ -34,11 +34,10 @@ public class PlayerExamine : MonoBehaviour {
 
 	void Examine (GameObject item)
 	{
-        GameManager.instance.embers++;
-
-        Debug.Log("Inspected item: " + item.name.ToString());
-        Debug.Log("Embers: " + GameManager.instance.embers);
-
+        EventManager.TriggerEvent("ember");
+//        GameManager.instance.embers++;
+//        Debug.Log("Inspected item: " + item.name.ToString());
+//        Debug.Log("Embers: " + GameManager.instance.embers);
         Destroy(item);
 	}
 }

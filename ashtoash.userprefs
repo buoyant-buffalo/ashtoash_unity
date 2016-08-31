@@ -1,21 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerExamine.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Burn.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameManager.cs" Line="26" Column="2" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="80" Column="1" />
-      <File FileName="Assets\Scripts\HeadBob.cs" Line="12" Column="49" />
-      <File FileName="Assets\Scripts\GrappleBehavior.cs" Line="8" Column="29" />
-      <File FileName="Assets\Scripts\PlayerFireHook.cs" Line="13" Column="38" />
-      <File FileName="Assets\Standard Assets\Utility\ParticleSystemDestroyer.cs" Line="26" Column="42" />
-      <File FileName="Assets\Standard Assets\ParticleSystems\Scripts\ParticleSystemMultiplier.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerExamine.cs" Line="15" Column="48" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EventManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GrappleBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerFireHook.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerInteract.cs" Line="26" Column="55" />
+      <File FileName="Assets\Scripts\Burn.cs" Line="30" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <RunToCursorBreakpoint file="C:\Users\Brandon\Documents\GitHub\ashtoash\Assets\Scripts\PlayerExamine.cs" line="24" column="30" />
-      <RunToCursorBreakpoint file="C:\Users\Brandon\Documents\GitHub\ashtoash\Assets\Scripts\PlayerExamine.cs" line="28" column="2" />
+      <RunToCursorBreakpoint file="C:\Users\Brandon\Documents\GitHub\ashtoash\Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" line="9" column="2" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

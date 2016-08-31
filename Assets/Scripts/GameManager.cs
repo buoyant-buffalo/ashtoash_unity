@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public int embers = 0;
 
+    private UnityAction emberListener; 
+
 	void Awake () 
 	{
 		if (instance != null && instance != this)	{
@@ -16,9 +19,23 @@ public class GameManager : MonoBehaviour
 			instance = this;
 		}
 		DontDestroyOnLoad(gameObject);
+
+        emberListener = new UnityAction(IncreaseEmbers);
    	}
-	
-	void Update () 
-	{
-	}
+
+    void OnEnable ()
+    {
+        EventManager.StartListening("ember", emberListener);
+    }
+
+    void IncreaseEmbers ()
+    {
+        embers++;
+        Debug.Log("Embers increased");
+    }
+
+    void OnDisable ()
+    {
+        EventManager.StopListening("ember", emberListener);
+    }
 }
